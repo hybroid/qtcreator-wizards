@@ -1,5 +1,5 @@
-#ifndef PINS_H
-#define PINS_H
+#ifndef HAL_H
+#define HAL_H
 
 #include <avr/io.h>
 
@@ -13,4 +13,4 @@
 #define LED_GREEN			C
 #define LED_GREE_LINE		(1<<0)
 
-#endif /* PINS_H */
+#endif /* HAL_H */

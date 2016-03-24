@@ -1,0 +1,220 @@
+{
+    "version": 1,
+    "kind": "project",
+    "id": "A.AVR",
+    "category": "A.MCU",
+    "trDescription":
+    {
+        "C": "Creates an ATmega/ATtiny project based on the Makefile",
+        "ru": "Создание проекта для ATmega/ATtiny на базе Makefile"
+    },
+    "trDisplayName": { "C": "AVR ATmega/ATtiny Project", "ru": "Проект на AVR ATmega/ATtiny" },
+    "trDisplayCategory": { "C": "Microcontrollers", "ru": "Микроконтроллеры" },
+    "icon": "atmega168.jpg",
+    "options":
+    [
+        { "key": "MCU", "value": "%{JS: ('%{CheckBoxMCU}' === '1') ? '%{SelectMCU}' : '%{CustomMCU}' }" }
+    ],
+
+    "pages":
+    [
+        {
+            "trDisplayName": { "C": "Project Location", "ru": "Путь проекта" },
+            "trShortTitle": { "C": "Location", "ru": "Путь" },
+            "typeId": "Project"
+        },
+        {
+            "trDisplayName": { "C": "Parameters", "ru": "Параметры" },
+            "trShortTitle": { "C": "Parameters", "ru": "Параметры" },
+            "typeId": "Fields",
+            "data":
+            [
+                {
+                    "name": "SelectMCU",
+                    "trDisplayName": "MCU:",
+                    "type": "ComboBox",
+                    "enabled": "%{JS: ('%{CheckBoxMCU}' === '1') }",
+                    "data":
+                    {
+                        "index": 42,
+                        "items":
+                        [
+                            "atmega103",
+                            "atmega128", "atmega128a", "atmega1280", "atmega1281", "atmega1284", "atmega1284p",
+                            "atmega16", "atmega161", "atmega162", "atmega163", "atmega164a", "atmega164p", "atmega164pa",
+                                "atmega165", "atmega165a", "atmega165p", "atmega165pa",
+                                "atmega168", "atmega168a", "atmega168p", "atmega168pa",
+                                "atmega16a",
+                            "atmega256", "atmega2561",
+                            "atmega32", "atmega32a", "atmega323", "atmega324a", "atmega324p", "atmega324pa",
+                                "atmega325", "atmega325a", "atmega325p", "atmega325pa",
+                                "atmega3250", "atmega3250a", "atmega3250p", "atmega3250pa",
+                            "atmega328", "atmega328p",
+                            "atmega48", "atmega48a", "atmega48pa", "atmega48p",
+                            "atmega64", "atmega64a", "atmega640",
+                                "atmega644", "atmega644a", "atmega644p", "atmega644pa",
+                                "atmega645", "atmega645a", "atmega645p",
+                                "atmega6450", "atmega6450a", "atmega6450p",
+                            "atmega8", "atmega8a",
+                            "atmega88", "atmega88a", "atmega88pa", "atmega88p",
+                            "atmega8515", "atmega8535",
+
+                            "attiny4", "attiny5",
+                            "attiny10", "attiny11", "attiny12", "attiny13", "attiny13a", "attiny15",
+                            "attiny20", "attiny22", "attiny24", "attiny24a", "attiny25", "attiny26",
+                                "attiny261", "attiny261a",
+                                "attiny28", "attiny2313", "attiny2313a",
+                            "attiny40", "attiny4313", "attiny43u", "attiny44", "attiny44a", "attiny45",
+                                "attiny461", "attiny461a", "attiny48",
+                            "attiny828",
+                            "attiny84", "attiny84a", "attiny85", "attiny861", "attiny861a", "attiny87", "attiny88",
+                            "attiny1634",
+
+                            "atmega16m1", "atmega32c1", "atmega32m1", "atmega64c1", "atmega64m1",
+                            "attiny167",
+                            "ata5505", "ata5272", "ata5790", "ata5795",
+
+                            "at90can32", "at90can64", "at90can128",
+
+                            "atmega169", "atmega169a", "atmega169p", "atmega169pa",
+                            "atmega329", "atmega329a", "atmega329p", "atmega329pa",
+                            "atmega3290", "atmega3290a", "atmega3290p", "atmega3290pa",
+                            "atmega649", "atmega649a", "atmega649p",
+                            "atmega6490", "atmega6490a", "atmega6490p",
+
+                            "at90pwm1", "at90pwm2", "at90pwm2b", "at90pwm216", "at90pwm3", "at90pwm3b",
+                                "at90pwm316", "at90pwm161", "at90pwm81",
+
+                            "atmega8hva", "atmega16hva", "atmega16hva2", "atmega16hvb", "atmega16hvbrevb",
+                                "atmega32hvb", "atmega32hvbrevb", "atmega64hve", "atmega406",
+
+                            "at90usb82", "at90usb162", "at90usb646", "at90usb647", "at90usb1286", "at90usb1287",
+                            "atmega8u2", "atmega16u2", "atmega16u4", "atmega32u2", "atmega32u4", "atmega32u6",
+
+                            "atxmega16a4", "atxmega16a4u", "atxmega16c4", "atxmega16d4",
+                            "atxmega32a4", "atxmega32a4u", "atxmega32c4", "atxmega32d4",
+                            "atxmega64a1", "atxmega64a1u", "atxmega64a3", "atxmega64a3u", "atxmega64a4u",
+                                "atxmega64b1", "atxmega64b3", "atxmega64c3", "atxmega64d3", "atxmega64d4",
+                            "atxmega128a1", "atxmega128a1u", "atxmega128a3", "atxmega128a3u", "atxmega128a4u",
+                                "atxmega128b1", "atxmega128b3", "atxmega128c3", "atxmega128d3", "atxmega128d4",
+                            "atxmega192a3", "atxmega192a3u", "atxmega192c3", "atxmega192d3",
+                            "atxmega256a3", "atxmega256a3u", "atxmega256a3b", "atxmega256a3bu",
+                                 "atxmega256c3", "atxmega256d3",
+                            "atxmega384c3", "atxmega384d3",
+
+                            "atmega644rfr2", "atmega64rfr2", "atmega128rfa1", "atmega1284rfr2", "atmega128rfr2",
+                                "atmega2564rfr2", "atmega256rfr2",
+
+                            "at94K", "at76c711", "at43usb320", "at43usb355", "at86rf401", "at90scr100",
+                                "ata6285", "ata6286", "ata6289", "m3000",
+
+                            "at90s1200", "at90s2313", "at90s2323", "at90s2333", "at90s2343",
+                                "at90s4414", "at90s4433", "at90s4434",
+                                "at90s8515", "at90s8534", "at90s8535"
+                        ]
+                    }
+                },
+                {
+                    "name": "CheckBoxMCU",
+                    "trDisplayName": "Define custom MCU",
+                    "type": "CheckBox"
+                },
+                {
+                    "name": "CustomMCU",
+                    "trDisplayName": "Custom MCU:",
+                    "type": "LineEdit",
+                    "enabled": "%{JS: ('%{CheckBoxMCU}' === '0') }",
+                    "mandatory": false,
+                    "data":
+                    {
+                        "trPlaceholder": "i.e., atmega88a",
+                        "validator": "^[a-zA-Z_0-9]+$"
+                    }
+                },
+                {
+                    "name": "F_CPU",
+                    "trDisplayName": "F_CPU:",
+                    "trToolTip": "Frequency in Hz",
+                    "type": "LineEdit",
+                    "data":
+                    {
+                        "trText": "8000000",
+                        "validator": "^\\d{5,8}$"
+                    }
+                },
+                {
+                    "name": "Sp1",
+                    "type": "Spacer",
+                    "data": { "factor": 12 }
+                },
+                {
+                    "name": "AVR_LIBC_INCLUDE_DIR",
+                    "trDisplayName": "Path to AVR LIBC include directory:",
+                    "trToolTip": "i.e., /usr/avr/include",
+                    "type": "PathChooser",
+                    "data":
+                    {
+                        "kind": "existingDirectory",
+                        "basePath": "%{InitialPath}",
+                        "path": "/usr/avr/include"
+                    }
+                }
+            ]
+        },
+        {
+            "trDisplayName": { "C": "Project Management", "ru": "Управление проектом" },
+            "trShortTitle": { "C": "Summary", "ru": "Общее" },
+            "typeId": "Summary"
+        }
+    ],
+
+    "generators":
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "project.creator",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.creator",
+                    "openAsProject": true
+                },
+                {
+                    "source": "project.includes",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.includes"
+                },
+                {
+                    "source": "project.config",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.config"
+                },
+                {
+                    "source": "project.files",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.files"
+                },
+                {
+                    "source": "Makefile",
+                    "target": "%{ProjectDirectory}/Makefile"
+                },
+                {
+                    "source": "main.c",
+                    "target": "%{ProjectDirectory}/main.c",
+                    "openInEditor": true
+                },
+                {
+                    "source": "hal.h",
+                    "target": "%{ProjectDirectory}/hal.h"
+                },
+                {
+                    "source": "git.ignore",
+                    "target": "%{ProjectDirectory}/.gitignore",
+                    "condition": "%{JS: %{IsTopLevelProject} && '%{VersionControl}' === 'G.Git'}"
+                },
+                {
+                    "source": "hg.ignore",
+                    "target": "%{ProjectDirectory}/.hgignore",
+                    "condition": "%{JS: %{IsTopLevelProject} && '%{VersionControl}' === 'H.Mercurial'}"
+                }
+            ]
+        }
+    ]
+}

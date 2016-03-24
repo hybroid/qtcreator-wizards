@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "pins.h"
+#include "hal.h"
 
 int main(void)
 {
