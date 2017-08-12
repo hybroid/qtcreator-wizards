@@ -1,0 +1,96 @@
+{
+    "version": 1,
+    "kind": "project",
+    "id": "B.STM32F1_libopencm3",
+    "category": "A.MCU",
+    "trDescription":
+    {
+        "C": "Creates an STM32F1 project based on the Makefile and uses libopencm3",
+        "ru": "Создание проекта для STM32F1 на базе Makefile с использованием libopencm3"
+    },
+    "trDisplayName": { "C": "STM32F1 libopencm3 Project", "ru": "Проект на STM32F1 libopencm3" },
+    "trDisplayCategory": { "C": "Microcontrollers", "ru": "Микроконтроллеры" },
+    "icon": "stm32.jpg",
+    "options":
+    [
+        
+    ],
+
+    "pages":
+    [
+        {
+            "trDisplayName": { "C": "Project Location", "ru": "Путь проекта" },
+            "trShortTitle": { "C": "Location", "ru": "Путь" },
+            "typeId": "Project"
+        },
+        {
+            "trDisplayName": { "C": "Parameters", "ru": "Параметры" },
+            "trShortTitle": { "C": "Parameters", "ru": "Параметры" },
+            "typeId": "Fields",
+            "data":
+            [
+                {
+                    "name": "Device",
+                    "trDisplayName": "MCU Device:",
+                    "type": "LineEdit",
+                    "data":
+                    {
+                        "trText": "stm32f100rbt6",
+                        "validator": "^[a-zA-Z_0-9]+$"
+                    }
+                }
+            ]
+        },
+        {
+            "trDisplayName": { "C": "Project Management", "ru": "Управление проектом" },
+            "trShortTitle": { "C": "Summary", "ru": "Общее" },
+            "typeId": "Summary"
+        }
+    ],
+
+    "generators":
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "project.creator",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.creator",
+                    "openAsProject": true
+                },
+                {
+                    "source": "project.includes",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.includes"
+                },
+                {
+                    "source": "project.config",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.config"
+                },
+                {
+                    "source": "project.files",
+                    "target": "%{ProjectDirectory}/%{ProjectName}.files"
+                },
+                {
+                    "source": "Makefile",
+                    "target": "%{ProjectDirectory}/Makefile"
+                },
+                {
+                    "source": "src/main.c",
+                    "target": "%{ProjectDirectory}/src/main.c",
+                    "openInEditor": true
+                },
+                {
+                    "source": "git.modules",
+                    "target": "%{ProjectDirectory}/.gitmodules",
+                    "condition": "%{JS: %{IsTopLevelProject} && '%{VersionControl}' === 'G.Git'}"
+                },
+                {
+                    "source": "git.ignore",
+                    "target": "%{ProjectDirectory}/.gitignore",
+                    "condition": "%{JS: %{IsTopLevelProject} && '%{VersionControl}' === 'G.Git'}"
+                }
+            ]
+        }
+    ]
+}
